@@ -5,3 +5,17 @@ low = 0
 high = 100
 ans = (low+high)//2
 while True:
+  print("Is your secret number",ans,"?",end="")
+  guess = input("Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.")
+  if guess =="l":
+    low = ans
+    ans = (low+high)//2
+   elif guess =="h":
+    high = ans
+    ans = (low+high)//2
+   elif guess =="c":
+    print("Game over. Your secret number was:",ans)
+    break
+   else:
+    print("I did not understand your input.")
+  
