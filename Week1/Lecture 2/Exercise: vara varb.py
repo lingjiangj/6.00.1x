@@ -6,13 +6,13 @@
 #"equal" if varA is equal to varB
 #"smaller" if varA is smaller than varB
 
-if type(varA) == str or type(varB) ==str:
-   print( "string involved")
+if type(varA) == str or type(varB) == str :
+	print("string involved")
 elif varA > varB:
-	 print("bigger")
+	print("bigger")
 elif varA == varB:
-	 print("equal")
+	print("equal")
 else:
-   print("smaller")
+	print("smaller")
 
    
