@@ -14,4 +14,16 @@
 # As you design the function, think very carefully about what the base cases should be.
 
 def isIn(char, aStr):
+    if len(aStr) == 0:
+        return False
+    if len(aStr) == 1:
+        return char == aStr[0]
+    else:
+        if char < aStr[len(aStr)//2]:
+            return isIn(char,aStr[:len(aStr)//2])
+        elif char > aStr[len(aStr)//2]:
+            return isIn(char, aStr[len(aStr)//2:])
+        else:
+            return True
+        
 
