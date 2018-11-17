@@ -13,3 +13,5 @@
 
 # As you design the function, think very carefully about what the base cases should be.
 
+def isIn(char, aStr):
+
