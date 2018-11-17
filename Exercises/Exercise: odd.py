@@ -5,3 +5,4 @@
 # This function takes in one number and returns a boolean.
 
 def odd(x):
+    return x % 2 != 0
