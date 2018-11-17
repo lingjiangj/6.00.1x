@@ -12,5 +12,5 @@
 def gcdIter(a,b):
     result = min(a,b)
     while a % result !=0 or b % result != 0:
-        result +=1
+        result -=1
     return result
