@@ -50,7 +50,12 @@ def isWordGuessed(secretWord, lettersGuessed):
     returns: boolean, True if all the letters of secretWord are in lettersGuessed;
       False otherwise
     '''
-    # FILL IN YOUR CODE HERE...
+    iswordin = True
+    for letter in secretWord:
+        if letter not in lettersGuessed:
+            iswordin = False
+    
+    return iswordin
 
 
 
@@ -61,8 +66,13 @@ def getGuessedWord(secretWord, lettersGuessed):
     returns: string, comprised of letters and underscores that represents
       what letters in secretWord have been guessed so far.
     '''
-    # FILL IN YOUR CODE HERE...
-
+    result = ""
+    for letter in secretWord:
+        if letter in lettersGuessed:
+            result += letter
+        else:
+            result +="_"
+    return result
 
 
 def getAvailableLetters(lettersGuessed):
@@ -71,7 +81,17 @@ def getAvailableLetters(lettersGuessed):
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-    # FILL IN YOUR CODE HERE...
+    import string
+    allletters = string.ascii_lowercase
+    availetters = ""
+    
+    for i in allletters:
+        if i not in lettersGuessed:
+            availetters += i
+            
+    return availetters
+
+
     
 
 def hangman(secretWord):
@@ -94,10 +114,39 @@ def hangman(secretWord):
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    # FILL IN YOUR CODE HERE...
-
-
-
+    print("Welcome to the game, Hangman!")
+    print("I am thinking of a word that is "+str(len(secretWord))+" letters long.")
+    print("-------------")
+    
+    guessesleft = 8
+    lettersGuessed = []
+    lettersGuessed2 = []
+    while True:
+        if isWordGuessed(secretWord, lettersGuessed):
+            print("Congratulations, you won!")
+            break
+        
+        elif guessesleft>0:
+            print("You have "+str(guessesleft)+" guesses left.")
+            print("Available letters: "+getAvailableLetters(lettersGuessed))
+            guess = (input("Please guess a letter: ")).lower()
+            lettersGuessed.append(guess)
+                
+            if guess in lettersGuessed2:
+                print("Oops! You've already guessed that letter: "+getGuessedWord(secretWord, lettersGuessed))
+                print("------------")
+            elif guess not in secretWord:
+                guessesleft -=1
+                print("Oops! That letter is not in my word: "+getGuessedWord(secretWord, lettersGuessed))
+                print("------------")
+            elif guess in secretWord:
+                print('Good guess: ' + getGuessedWord(secretWord, lettersGuessed))
+                print("------------")
+        else:
+            print("Sorry, you ran out of guesses. The word was "+secretWord)
+            break
+        
+        lettersGuessed2.append(guess)
 
 
 
