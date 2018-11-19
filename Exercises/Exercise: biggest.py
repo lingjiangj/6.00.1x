@@ -14,3 +14,11 @@ def biggest(aDict):
 
     returns: The key with the largest number of values associated with it
     '''
+    result = None
+    biggestvalue = 0
+    for key in aDict.keys():
+        if len(aDict[key]) > biggestvalue:
+            biggestvalue = len(aDict[key])
+            result = key
+    return result
+            
