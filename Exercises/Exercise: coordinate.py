@@ -15,5 +15,12 @@ class Coordinate(object):
     def __str__(self):
         return '<' + str(self.getX()) + ',' + str(self.getY()) + '>'
         
-    def __eq__(self):
+    def __eq__(self,other):
+        # First make sure `other` is of the same typ
+        assert type(other) == type(self)
+        # Since `other` is the same type, test if coordinates are equal
+        return self.getX() == other.getX() and self.getY() == other.getY()
+    def __repr__(self):
+        # a special method that returns a string that looks like a valid Python expression that could be used to recreate an object with the same value. In other words, eval(repr(c)) == c given the definition of __eq__ from part 1.
+        return "Coprdinate("+ str(self.getX()) + "," + str(self.getY()) +")"
     
