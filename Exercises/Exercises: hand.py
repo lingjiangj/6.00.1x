@@ -82,8 +82,22 @@ class Hand(object):
         word: string
         returns: Boolean (if the word was or was not made)
         """
-        # Your code here
-        raise NotImplementedError()
+        newhand = self.hand.copy()
+        n = 0
+        made = False
+        while n < len(word):
+            if word[n] not in newhand:
+                made = False
+                break
+            elif newhand[word[n]] <= 0:
+                made = False
+                break
+            else:
+                made = True
+                newhand[word[n]] -=1
+                n +=1
+        self.hand = newhand
+        return made
 
     
 myHand = Hand(7)
