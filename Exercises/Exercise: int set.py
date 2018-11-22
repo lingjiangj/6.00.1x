@@ -24,8 +24,22 @@ class intSet(object):
             self.vals.remove(e)
         except:
             raise ValueError(str(e) + ' not found')
-
+            
+    def interset(self,other):
+        """Assumes other is an intSet
+           Returns a new intSet containing elements that appear in both sets."""
+        # Initialize a new intSet
+        commonSet = inSet()
+        # Go through the values in this set
+        for i in self.vals:
+            if other.member(i) == True:
+                commonSet.insert(i)
+        return commonSet
+                       
     def __str__(self):
         """Returns a string representation of self"""
         self.vals.sort()
         return '{' + ','.join([str(e) for e in self.vals]) + '}'
+    
+    def __len__(self):
+        return len(self.vals)
