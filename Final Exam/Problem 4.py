@@ -15,4 +15,33 @@ def longest_run(L):
     Does not modify the list.
     Returns the sum of the longest run. 
     """
-    # Your code here
+    inc_count = 0 
+    dec_count = 0
+    maxlen = 0
+    result = []
+    
+    for i in range(len(L)-1):
+        if L[i]<=L[i+1]:
+            inc_count +=1
+            
+            if inc_count > maxlen:
+                maxlen = inc_count
+                result = L[i+1-maxlen:i+1+1]
+        else:
+            inc_count = 0
+        
+        if L[i]>=L[i+1]:
+            dec_count +=1
+            
+            if dec_count >maxlen:
+                maxlen = dec_count
+                result = L[i+1-maxlen:i+1+1]
+        else:
+            dec_count = 0
+        
+    return sum(result)
+            
+
+    
+    
+    
