@@ -10,5 +10,19 @@ def uniqueValues(aDict):
     aDict: a dictionary
     returns: a sorted list of keys that map to unique aDict values, empty list if none
     '''
-    # Your code here
+    reverseDic = {}
+    
+    for key in aDict:
+        if reverseDic.get(aDict[key],None) == None:
+            reverseDic[aDict[key]] = key
+        else:
+            reverseDic[aDict[key]] = "duplicated"
+            
+    result = []
+    for i in reverseDic:
+        if reverseDic[i] != "duplicated":
+            result.append(reverseDic[i])
+    
+    return sorted(result)
+    
     
