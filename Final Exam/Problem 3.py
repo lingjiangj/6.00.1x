@@ -5,4 +5,14 @@ def is_triangular(k):
     k, a positive integer
     returns True if k is triangular and False if not
     """
+    my_list = []
+    n = 2  
+    while True:
+        num = sum(range(0,n))
+        my_list.append(num)
+        n +=1
+        if k <= num:
+            break
+    return k in my_list
+    
     
