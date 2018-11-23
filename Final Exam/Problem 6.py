@@ -1,3 +1,5 @@
+# Problem 6
+
 class ArrogantProfessor(Person): 
     def say(self, stuff): 
         return self.name + ' says: ' + 'It is obvious that ' + self.name + ' says: ' + stuff
